@@ -1,6 +1,7 @@
-import { inicializaModelo } from './modelo.js'
+import { inicializaModelo } from '../model/modelo.js'
 import { readFileSync } from "fs"
-import { fazerPergunta } from './pergunta.js'
+import { fazerPergunta } from '../services/pergunta.js'
+
 const model = await inicializaModelo("gemini-1.5-pro")
 
 // Converts local file information to a GoogleGenerativeAI.Part object.

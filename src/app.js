@@ -1,8 +1,8 @@
-import { fazerPergunta } from './pergunta.js'
-import { perguntar } from './perguntaLivre.js'
-import { consultar } from './consultaDestino.js'
-import { processaImagem } from './processaImagem.js'
-import { processaArquivoTexto } from './categorizador.js'
+import { fazerPergunta } from '../src/services/pergunta.js'
+import { perguntar } from '../src/services/perguntaLivre.js'
+import { consultar } from '../src/services/consultaDestino.js'
+import { processaImagem } from '../src/services/processaImagem.js'
+import { processaArquivoTexto } from '../src/services/categorizador.js'
 
 async function principal() {
   const escolha = await fazerPergunta(`Escolha uma das opções abaixo: \n
@@ -17,7 +17,7 @@ async function principal() {
   } else if (escolha === '2') {
     await consultar()
   } else if (escolha === '3'){
-    const imagem = await fazerPergunta('Me informe o path da imagem: ')
+    const imagem = await fazerPergunta('Me informe o path da imagem com prefixo: test/ + path: ')
     await processaImagem(imagem)
   } else if (escolha === '4'){
     await processaArquivoTexto()

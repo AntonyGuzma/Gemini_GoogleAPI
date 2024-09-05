@@ -1,5 +1,5 @@
-import { inicializaModelo } from './modelo.js';
-import { fazerPergunta } from './pergunta.js';
+import { inicializaModelo } from '../model/modelo.js';
+import { fazerPergunta } from '../services/pergunta.js';
 import { promises as fs } from "fs"
 
 const model = await inicializaModelo("gemini-1.5-flash")
