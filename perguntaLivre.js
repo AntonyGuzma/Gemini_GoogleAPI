@@ -13,10 +13,21 @@ export async function perguntar() {
         {text: "output: "},
       ];
 
-    const result = await model.generateContent(
+    const requisicao = (
         { contents: [{ role: "user", parts }] }
     )
+
+    const result = await model.generateContent(requisicao)
+
+    // Count tokens in a prompt without calling text generation
+    const totalTOkenEntrada = await model.countTokens(requisicao)
+    console.log("Token Entrada: " + totalTOkenEntrada.totalTokens)
+
     const response = await result.response
-    console.log(response.text())
+    const text = response.text()
+    console.log(text)
+
+    const totalTOkenSaida = await model.countTokens(text)
+    console.log("Token Entrada: " + totalTOkenSaida.totalTokens)
 }
 
