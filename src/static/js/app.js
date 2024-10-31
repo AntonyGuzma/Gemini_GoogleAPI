@@ -30,7 +30,6 @@ async function enviarMensagem() {
             body: JSON.stringify({'mensagem': mensagem})
         })
 
-        const resposta = await response.json
         const novaBolha = criaBolhaUsuario();
         novaBolha.innerHTML = mensagem;
         chat.appendChild(novaBolha);
@@ -39,7 +38,8 @@ async function enviarMensagem() {
         chat.appendChild(novaBolhaBot);
         vaiParaFinalDoChat();
         
-        novaBolhaBot.innerHTML = resposta;
+        const resposta = await response.json()
+        novaBolhaBot.innerHTML = resposta.response;
         vaiParaFinalDoChat();
 
 
